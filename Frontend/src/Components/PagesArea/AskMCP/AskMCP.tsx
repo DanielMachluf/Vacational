@@ -28,7 +28,7 @@ export function AskMCP() {
             const response = await gptService.getMcpResult(prompt);
             setAnswer(response);
         } catch (err: any) {
-            notify.error(err);
+            notify.error("Analytics service is temporarily unavailable. Please try again later.");
         } finally {
             setIsLoading(false);
             setPrompt("");
