@@ -6,10 +6,16 @@ import { StatusCode } from "../3-models/enums";
 class ErrorsMiddleware {
 
     public catchAll(err: any, request: Request, response: Response, next: NextFunction) {
-        console.error(err);
+        console.error("Backend Error:", err.message);
+        
         const status = err.status || StatusCode.InternalServerError;
         const isServerError = status >= 500 && status <= 599;
-        const message = appConfig.isProduction && isServerError ? "Some error, please try again." : err.message;
+        
+        // Hide server errors and 3rd-party library errors from the user to prevent data leaks.
+        const message = isServerError 
+            ? "An unexpected server error occurred. Please try again later." 
+            : err.message;
+
         response.status(status).json({ message });
     }
 

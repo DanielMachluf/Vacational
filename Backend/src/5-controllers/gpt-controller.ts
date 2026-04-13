@@ -26,7 +26,9 @@ class GptController {
             response.status(StatusCode.OK).send(answer);
         }
         catch (err: any) {
-            next(err);
+            console.error("AI Error:", err.message);
+            // Hide detailed OpenAI/MCP errors from the client
+            response.status(StatusCode.InternalServerError).json({ message: "The AI service is currently unavailable. Please try again later." });
         }
     };
 
@@ -42,7 +44,9 @@ class GptController {
             response.status(StatusCode.OK).send(answer);
         }
         catch (err: any) {
-            next(err);
+            console.error("MCP Error:", err.message);
+            // Hide detailed OpenAI/MCP errors from the client
+            response.status(StatusCode.InternalServerError).json({ message: "The MCP assistant is currently unavailable. Please try again later." });
         }
     };
 }
