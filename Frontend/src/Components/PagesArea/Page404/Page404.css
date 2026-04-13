@@ -4,9 +4,8 @@
     align-items: center;
     height: 70vh;
     text-align: center;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 16px;
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+    border-radius: 12px;
     margin: 20px;
     padding: 20px;
 }
@@ -14,21 +13,20 @@
 .content-404 h1 {
     font-size: 6rem;
     margin: 0;
-    color: #e85d45;
-    text-shadow: 0 0 40px rgba(232, 93, 69, 0.3);
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .content-404 h2 {
     font-size: 2rem;
-    color: #fff;
+    color: #333;
     margin-top: 10px;
-    font-weight: 600;
 }
 
 .content-404 p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin-bottom: 24px;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 .island-emoji {
@@ -39,20 +37,18 @@
 
 .home-btn {
     display: inline-block;
-    padding: 12px 28px;
-    background-color: #e85d45;
+    padding: 12px 24px;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
     border-radius: 8px;
-    transition: all 0.25s ease;
-    font-size: 0.95rem;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .home-btn:hover {
-    background-color: #d44a33;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(232, 93, 69, 0.3);
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 @keyframes floating {

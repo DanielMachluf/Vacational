@@ -1,46 +1,44 @@
 .UserMenu {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .UserMenu .logged-in,
 .UserMenu .logged-out {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .UserMenu span {
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    color: #333;
 }
 
 .UserMenu a {
-    color: rgba(255, 255, 255, 0.5);
+    color: #007bff;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-weight: bold;
 }
 
 .UserMenu a:hover {
-    color: #fff;
+    text-decoration: underline;
+    color: #0056b3;
 }
 
 .UserMenu button {
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.7);
-    padding: 6px 16px;
-    border-radius: 6px;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 4px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 0.85rem;
-    transition: all 0.25s ease;
+    font-weight: bold;
+    transition: all 0.2s;
 }
 
 .UserMenu button:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.25);
-    color: #fff;
+    background-color: #dc3545;
+    color: white;
 }

@@ -3,76 +3,66 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
-    min-height: 60vh;
+    padding: 20px;
 }
 
 .Register form {
     display: flex;
     flex-direction: column;
-    padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    width: 380px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 350px;
 }
 
 .Register h2 {
     text-align: center;
-    margin-bottom: 28px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .Register label {
-    font-weight: 500;
-    margin-top: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .Register input {
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.06);
-    color: #fff;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    transition: border-color 0.25s ease;
-}
-
-.Register input::placeholder {
-    color: rgba(255, 255, 255, 0.25);
-}
-
-.Register input:focus {
-    outline: none;
-    border-color: #e85d45;
-    background-color: rgba(255, 255, 255, 0.08);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 .Register button {
-    padding: 13px;
-    background-color: #e85d45;
+    padding: 12px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px;
-    margin-top: 20px;
+    border-radius: 5px;
+    margin-top: 15px;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.25s ease;
-    letter-spacing: 0.3px;
+    font-size: 16px;
+    transition: background-color 0.2s;
 }
 
 .Register button:hover {
-    background-color: #d44a33;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(232, 93, 69, 0.25);
+    background-color: #0056b3;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: #36b5d8;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
 }
