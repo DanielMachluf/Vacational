@@ -4,8 +4,8 @@ FROM node:24-alpine
 # Create project folder inside the image:
 WORKDIR /app
 
-# Copy package.json into /app:
-COPY ./Backend/package.json /app
+# Copy package files into /app:
+COPY ./Backend/package.json ./Backend/package-lock.json /app/
 
 # Install node_modules: 
 RUN npm install
