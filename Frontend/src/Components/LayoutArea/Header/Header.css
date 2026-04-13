@@ -2,36 +2,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
-    background: linear-gradient(135deg, #007bff, #00c6ff);
-    color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 16px 40px;
+    background-color: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #fff;
 }
 
 .Header h1 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 /* Override UserMenu text colors inside the header */
 .Header .UserMenu span {
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .Header .UserMenu a {
-    color: #ffffffcc;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s;
 }
 
 .Header .UserMenu a:hover {
-    color: white;
+    color: #fff;
 }
 
 .Header .UserMenu button {
-    border-color: white;
-    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
 }
 
 .Header .UserMenu button:hover {
-    background-color: white;
-    color: #007bff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
 }

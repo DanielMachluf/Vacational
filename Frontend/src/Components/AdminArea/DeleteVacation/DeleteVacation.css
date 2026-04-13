@@ -1,61 +1,71 @@
 .DeleteVacation {
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding: 60px 20px;
 }
 
 .delete-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 44px;
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     text-align: center;
-    width: 400px;
+    width: 420px;
 }
 
 .delete-card h2 {
-    color: #dc3545;
-    margin-bottom: 15px;
+    color: #ff6b6b;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 1.4rem;
 }
 
 .delete-card p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 28px;
+    line-height: 1.5;
 }
 
 .delete-actions {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 14px;
 }
 
 .btn-delete {
-    padding: 10px 24px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    padding: 11px 28px;
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.25s ease;
+    font-size: 0.9rem;
 }
 
 .btn-delete:hover {
-    background-color: #c82333;
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
 }
 
 .btn-cancel {
-    padding: 10px 24px;
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    padding: 11px 28px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.25s ease;
+    font-size: 0.9rem;
 }
 
 .btn-cancel:hover {
-    background-color: #5a6268;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
 }

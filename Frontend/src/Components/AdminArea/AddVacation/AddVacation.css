@@ -1,74 +1,98 @@
 .AddVacation {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .AddVacation form {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 420px;
+    padding: 36px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .AddVacation h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 24px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.4rem;
 }
 
 .AddVacation label {
-    font-weight: bold;
-    margin-top: 10px;
-    color: #555;
+    font-weight: 500;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .AddVacation input,
 .AddVacation textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
     margin-bottom: 5px;
     font-size: 0.95rem;
+    color: #fff;
+    transition: border-color 0.25s;
+}
+
+.AddVacation input::placeholder,
+.AddVacation textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.AddVacation input:focus,
+.AddVacation textarea:focus {
+    outline: none;
+    border-color: #e85d45;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .AddVacation button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #28a745;
+    margin-top: 22px;
+    padding: 13px;
+    background-color: #e85d45;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.25s ease;
 }
 
 .AddVacation button:hover {
-    background-color: #218838;
+    background-color: #d44a33;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232, 93, 69, 0.25);
 }
 
 .image-upload-box {
     display: block;
     width: 100%;
     height: 180px;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
+    border: 2px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.03);
     transition: border-color 0.3s;
 }
 
 .image-upload-box:hover {
-    border-color: #1e90ff;
+    border-color: #e85d45;
 }
 
 .image-placeholder {
@@ -77,8 +101,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #888;
-    font-weight: bold;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
 }
 
 .image-preview {
@@ -99,11 +123,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
     color: white;
     padding: 8px 16px;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
     opacity: 0;
     transition: opacity 0.3s;
 }

@@ -9,38 +9,40 @@
 .filter-bar {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .filter-bar button {
-    padding: 10px 20px;
-    border: 2px solid #ddd;
-    background-color: white;
+    padding: 10px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.04);
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .filter-bar button:hover {
-    border-color: #007bff;
-    color: #007bff;
+    border-color: rgba(232, 93, 69, 0.4);
+    color: #e85d45;
+    background-color: rgba(232, 93, 69, 0.08);
 }
 
 .filter-bar button.active {
-    background-color: #007bff;
+    background-color: #e85d45;
     color: white;
-    border-color: #007bff;
+    border-color: #e85d45;
 }
 
 /* Vacation cards grid */
 .VacationList {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
     justify-content: center;
     padding: 0 20px 20px;
     width: 100%;
@@ -49,7 +51,7 @@
 
 .no-results {
     font-size: 1.2rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.4);
     margin-top: 40px;
 }
 
@@ -63,27 +65,28 @@
 
 .pagination button {
     padding: 8px 18px;
-    border: 1px solid #ccc;
-    background-color: white;
-    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.25s ease;
 }
 
 .pagination button:hover:not(:disabled) {
-    background-color: #007bff;
+    background-color: #e85d45;
     color: white;
-    border-color: #007bff;
+    border-color: #e85d45;
 }
 
 .pagination button:disabled {
-    opacity: 0.4;
+    opacity: 0.25;
     cursor: not-allowed;
 }
 
 .page-number {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.1rem;
-    color: #333;
+    color: rgba(255, 255, 255, 0.7);
 }

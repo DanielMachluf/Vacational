@@ -1,9 +1,9 @@
 .VacationCard {
     width: 340px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,8 @@
 
 .VacationCard:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .card-image-container {
@@ -37,16 +38,16 @@
     position: absolute;
     bottom: 16px;
     right: 16px;
-    background-color: rgba(20, 20, 20, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: #ffffff;
     padding: 8px 16px;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1.05rem;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-content {
@@ -60,13 +61,13 @@
     margin: 0 0 8px 0;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #ffffff;
     letter-spacing: -0.5px;
 }
 
 .card-dates {
     font-size: 0.8rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.4);
     text-transform: uppercase;
     letter-spacing: 1.2px;
     margin-bottom: 16px;
@@ -75,7 +76,7 @@
 
 .card-description {
     font-size: 0.95rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.55);
     line-height: 1.6;
     margin: 0;
     flex-grow: 1;
@@ -84,7 +85,7 @@
 .like-section {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .like-btn {
@@ -92,27 +93,27 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background: #f8f9fa;
-    border: 1px solid #eaeaea;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 10px 16px;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #666;
+    color: rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
 }
 
 .like-btn:hover {
-    background-color: #fff0f0;
-    border-color: #ff6b6b;
-    color: #ff4757;
+    background-color: rgba(232, 93, 69, 0.1);
+    border-color: rgba(232, 93, 69, 0.3);
+    color: #e85d45;
 }
 
 .like-btn.liked {
-    background-color: #fff0f0;
-    border-color: #ff4757;
-    color: #ff4757;
+    background-color: rgba(232, 93, 69, 0.12);
+    border-color: #e85d45;
+    color: #e85d45;
 }
 
 .admin-actions {
@@ -120,7 +121,7 @@
     gap: 12px;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .admin-actions .btn-edit,
@@ -137,23 +138,25 @@
 }
 
 .admin-actions .btn-edit {
-    background-color: #f0f7ff;
-    color: #0066cc;
-    border-color: #d6eaff;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .admin-actions .btn-edit:hover {
-    background-color: #0066cc;
+    background-color: rgba(255, 255, 255, 0.12);
     color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .admin-actions .btn-remove {
-    background-color: #fff0f0;
-    color: #dc3545;
-    border-color: #ffd6d6;
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #ff6b6b;
+    border-color: rgba(220, 53, 69, 0.2);
 }
 
 .admin-actions .btn-remove:hover {
-    background-color: #dc3545;
-    color: #ffffff;
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #ff4757;
+    border-color: rgba(220, 53, 69, 0.4);
 }
