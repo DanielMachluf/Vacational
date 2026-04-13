@@ -19,6 +19,7 @@ export function Menu() {
             <NavLink to="/vacations">🏖️ Vacations</NavLink>
             <NavLink to="/ask-ai">🤖 Ask AI</NavLink>
             <NavLink to="/ask-mcp">📊 Ask MCP</NavLink>
+            <NavLink to="/about">ℹ️ About</NavLink>
 
             {isAdmin && (
                 <div className="admin-dropdown">

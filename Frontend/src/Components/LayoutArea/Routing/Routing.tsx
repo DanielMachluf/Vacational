@@ -9,6 +9,7 @@ import { AddVacation } from "../../AdminArea/AddVacation/AddVacation";
 import { UpdateVacation } from "../../AdminArea/UpdateVacation/UpdateVacation";
 import { DeleteVacation } from "../../AdminArea/DeleteVacation/DeleteVacation";
 import { VacationReport } from "../../AdminArea/VacationReport/VacationReport";
+import { About } from "../../PagesArea/About/About";
 
 export function Routing() {
     return (
@@ -19,6 +20,7 @@ export function Routing() {
             <Route path="/ask-mcp" element={<AskMCP />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} />
 
             {/* Admin routes */}
             <Route path="/admin/add" element={<AddVacation />} />
