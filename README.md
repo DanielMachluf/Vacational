@@ -1,6 +1,63 @@
-# Vacation Project - Full Stack SQL
+# Vacational - Vacation Management System
 
-A comprehensive full-stack vacation management system built with React, Node.js, Express, and MySQL. This project implements a Model Context Protocol (MCP) AI feature allowing users to interact with travel assistants and database analytics through natural language.
+### 🔗 Live Links
+- **Production Site:** [https://vacational.web.app](https://vacational.web.app)
+- **GitHub Repository:** [https://github.com/DanielMachluf/Vacational](https://github.com/DanielMachluf/Vacational)
+
+## 🐳 Docker Deployment Guide
+
+This project is fully containerized using Docker, allowing you to spin up the entire stack (MySQL, Node.js Backend, and React Frontend) with a single command.
+
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+### 🚀 Getting Started
+
+1. **Environment Variables:**
+   Ensure you have a `.env` file in the root directory with the following variables (refer to `.env.example` if available):
+   ```env
+   MYSQL_ROOT_PASSWORD=your_password
+   MYSQL_PASSWORD=your_password
+   JWT_SECRET=your_secret
+   HASH_SALT=your_salt
+   CHAT_GPT_API_KEY=your_openai_key
+   ```
+
+2. **Launch the Stack:**
+   Run the following command in the root folder to build and start all services in detached mode:
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. **Check Status:**
+   Verify that all three containers are healthy:
+   ```bash
+   docker compose ps
+   ```
+
+4. **Access the Application:**
+   - **Frontend:** [http://localhost](http://localhost) (Port 80)
+   - **Backend API:** [http://localhost:4000](http://localhost:4000)
+   - **Database:** Port 3306
+
+### 🛑 Stopping the Application
+
+To stop and remove the containers while keeping your data in volumes:
+```bash
+docker compose stop
+```
+
+To completely remove the containers and the internal network:
+```bash
+docker compose down
+```
+
+To remove everything, including the database volumes (reset data):
+```bash
+docker compose down -v
+```
+
+---
 
 ## Features
 
