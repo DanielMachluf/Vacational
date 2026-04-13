@@ -1,24 +1,36 @@
+/* ───────────────────────────────────────
+   VACATION CARD — Premium Glassmorphism
+   ─────────────────────────────────────── */
+
 .VacationCard {
-    width: 340px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    position: relative;
+    width: 360px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .VacationCard:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
 }
 
+/* ── Animated border glow ── */
+.card-glow {
+    display: none;
+}
+
+/* ── Image hero ── */
 .card-image-container {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 260px;
     overflow: hidden;
 }
 
@@ -26,64 +38,114 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+                filter 0.8s ease;
+    filter: brightness(0.85) saturate(1.1);
 }
 
 .VacationCard:hover .card-image-container img {
-    transform: scale(1.08);
+    transform: scale(1.12);
+    filter: brightness(0.7) saturate(1.25);
 }
 
+.card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(10, 10, 15, 0.95) 0%,
+        rgba(10, 10, 15, 0.4) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Price badge ── */
 .card-price {
     position: absolute;
-    bottom: 16px;
-    right: 16px;
-    background-color: rgba(20, 20, 20, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1.05rem;
+    top: 18px;
+    right: 18px;
+    background: rgba(10, 10, 15, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                background 0.3s ease;
 }
 
-.card-content {
+.VacationCard:hover .card-price {
+    transform: scale(1.08);
+    background: rgba(232, 93, 69, 0.7);
+    border-color: rgba(232, 93, 69, 0.4);
+}
+
+/* ── Header info overlaid on image ── */
+.card-header-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 24px;
+    z-index: 2;
+    transform: translateY(4px);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.VacationCard:hover .card-header-info {
+    transform: translateY(0);
+}
+
+.card-destination {
+    margin: 0 0 6px 0;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.card-dates {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* ── Content body ── */
+.card-content {
+    padding: 22px 24px 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.card-destination {
-    margin: 0 0 8px 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    letter-spacing: -0.5px;
-}
-
-.card-dates {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
 .card-description {
     font-size: 0.95rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
+/* ── Like button ── */
 .like-section {
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 18px;
+    padding-top: 18px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -91,35 +153,83 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     width: 100%;
     background: #f8f9fa;
     border: 1px solid #eaeaea;
-    padding: 10px 16px;
-    border-radius: 12px;
+    padding: 11px 16px;
+    border-radius: 14px;
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 600;
     color: #666;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.like-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(232, 93, 69, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.like-btn:hover::before {
+    opacity: 1;
 }
 
 .like-btn:hover {
-    background-color: #fff0f0;
-    border-color: #ff6b6b;
-    color: #ff4757;
+    border-color: rgba(232, 93, 69, 0.35);
+    color: #e85d45;
+    transform: scale(1.02);
+}
+
+.like-btn:active {
+    transform: scale(0.97);
+}
+
+.like-icon {
+    font-size: 1.15rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.6);
+    display: inline-block;
+}
+
+.like-btn:hover .like-icon {
+    transform: scale(1.25);
 }
 
 .like-btn.liked {
-    background-color: #fff0f0;
-    border-color: #ff4757;
-    color: #ff4757;
+    background: rgba(232, 93, 69, 0.1);
+    border-color: rgba(232, 93, 69, 0.3);
+    color: #e85d45;
 }
 
+.like-btn.liked .like-icon {
+    animation: heartPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.like-count {
+    font-variant-numeric: tabular-nums;
+    min-width: 16px;
+}
+
+@keyframes heartPop {
+    0%   { transform: scale(1); }
+    30%  { transform: scale(1.5); }
+    50%  { transform: scale(0.9); }
+    70%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ── Admin actions ── */
 .admin-actions {
     display: flex;
     gap: 12px;
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 18px;
+    padding-top: 18px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -128,32 +238,54 @@
     flex: 1;
     text-align: center;
     text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
     font-weight: 600;
     font-size: 0.85rem;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
 .admin-actions .btn-edit {
-    background-color: #f0f7ff;
-    color: #0066cc;
-    border-color: #d6eaff;
+    background: rgba(0, 0, 0, 0.05);
+    color: #444;
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .admin-actions .btn-edit:hover {
-    background-color: #0066cc;
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.08);
+    color: #222;
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .admin-actions .btn-remove {
-    background-color: #fff0f0;
-    color: #dc3545;
-    border-color: #ffd6d6;
+    background: rgba(220, 53, 69, 0.08);
+    color: #e33;
+    border-color: rgba(220, 53, 69, 0.15);
 }
 
 .admin-actions .btn-remove:hover {
-    background-color: #dc3545;
-    color: #ffffff;
+    background: rgba(220, 53, 69, 0.15);
+    color: #c00;
+    border-color: rgba(220, 53, 69, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ── Entrance animation ── */
+.VacationCard {
+    animation: cardReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

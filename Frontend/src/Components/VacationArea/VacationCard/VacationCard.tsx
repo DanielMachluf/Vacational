@@ -46,21 +46,27 @@ export function VacationCard(props: VacationCardProps) {
 
     return (
         <div className="VacationCard">
+            {/* Image hero area */}
             <div className="card-image-container">
                 <img src={imageUrl} alt={vacation.destination} />
+                <div className="card-image-overlay" />
                 <span className="card-price">${vacation.price}</span>
+                <div className="card-header-info">
+                    <h3 className="card-destination">{vacation.destination}</h3>
+                    <span className="card-dates">{startDate} — {endDate}</span>
+                </div>
             </div>
 
+            {/* Content body */}
             <div className="card-content">
-                <h3 className="card-destination">{vacation.destination}</h3>
-                <span className="card-dates">🗓 {startDate} - {endDate}</span>
                 <p className="card-description">{vacation.description}</p>
 
                 {/* Like section */}
                 {!isAdmin && (
                     <div className="like-section">
                         <button className={`like-btn ${liked ? "liked" : ""}`} onClick={toggleLike}>
-                            {liked ? "❤️" : "🤍"} {likesCount}
+                            <span className="like-icon">{liked ? "❤️" : "🤍"}</span>
+                            <span className="like-count">{likesCount}</span>
                         </button>
                     </div>
                 )}
@@ -72,6 +78,9 @@ export function VacationCard(props: VacationCardProps) {
                     </div>
                 )}
             </div>
+
+            {/* Animated border glow */}
+            <div className="card-glow" />
         </div>
     );
 }
