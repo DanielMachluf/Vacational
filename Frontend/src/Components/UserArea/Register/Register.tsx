@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
+import { appConfig } from "../../../Utils/AppConfig";
+import { useState } from "react";
 import { UserModel } from "../../../Models/UserModel";
 import { authService } from "../../../Services/AuthService";
 import { notify } from "../../../Utils/Notify";
@@ -8,8 +11,13 @@ import "./Register.css";
 export function Register() {
     const { register, handleSubmit } = useForm<UserModel>();
     const navigate = useNavigate();
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
     async function send(user: UserModel) {
+        if (!captchaValue) {
+            notify.error("Please complete the reCAPTCHA");
+            return;
+        }
         try {
             await authService.register(user);
             notify.success(`Welcome ${user.firstName}!`);
@@ -35,6 +43,12 @@ export function Register() {
 
                 <label>Password:</label>
                 <input type="password" {...register("password", { required: true, minLength: 2, maxLength: 30 })} />
+
+                <ReCAPTCHA
+                    sitekey={appConfig.recaptchaSiteKey}
+                    onChange={(val) => setCaptchaValue(val)}
+                    style={{ margin: "1rem auto" }}
+                />
 
                 <button>Register</button>
 

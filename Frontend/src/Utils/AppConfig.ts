@@ -9,7 +9,9 @@ class AppConfig {
 	public readonly vacationsReportCsvUrl = `${this.baseUrl}/api/vacations/report/csv`;
 	public readonly vacationImagesUrl = `${this.baseUrl}/api/vacations/images/`;
 
-	public readonly likesUrl = `${this.baseUrl}/api/likes`;
+    public readonly likesUrl = `${this.baseUrl}/api/likes`;
+
+    public readonly recaptchaSiteKey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Google reCAPTCHA v2 testing key
 
 	public readonly aiUrl = `${this.baseUrl}/api/ai`;
 	public readonly aiMcpUrl = `${this.baseUrl}/api/ai/mcp`;

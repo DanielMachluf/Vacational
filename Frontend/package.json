@@ -16,6 +16,7 @@
         "notyf": "^3.10.0",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
+        "react-google-recaptcha": "^3.1.0",
         "react-hook-form": "^7.72.0",
         "react-router-dom": "^7.9.5",
         "recharts": "^3.8.1"
@@ -25,6 +26,7 @@
         "@types/node": "^24.6.0",
         "@types/react": "^19.1.16",
         "@types/react-dom": "^19.1.9",
+        "@types/react-google-recaptcha": "^2.1.9",
         "@types/react-router-dom": "^5.3.3",
         "@vitejs/plugin-react": "^5.0.4",
         "baseline-browser-mapping": "^2.10.11",

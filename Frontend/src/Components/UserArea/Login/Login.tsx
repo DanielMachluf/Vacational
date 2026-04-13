@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
+import { appConfig } from "../../../Utils/AppConfig";
+import { useState } from "react";
 import { CredentialsModel } from "../../../Models/CredentialsModel";
 import { authService } from "../../../Services/AuthService";
 import { notify } from "../../../Utils/Notify";
@@ -8,8 +11,13 @@ import "./Login.css";
 export function Login() {
     const { register, handleSubmit } = useForm<CredentialsModel>();
     const navigate = useNavigate();
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
     async function send(credentials: CredentialsModel) {
+        if (!captchaValue) {
+            notify.error("Please complete the reCAPTCHA");
+            return;
+        }
         try {
             await authService.login(credentials);
             notify.success(`Welcome back ${authService.user?.firstName}!`);
@@ -29,6 +37,12 @@ export function Login() {
 
                 <label>Password:</label>
                 <input type="password" {...register("password", { required: true, minLength: 2, maxLength: 30 })} />
+
+                <ReCAPTCHA
+                    sitekey={appConfig.recaptchaSiteKey}
+                    onChange={(val) => setCaptchaValue(val)}
+                    style={{ margin: "1rem auto" }}
+                />
 
                 <button>Login</button>
 
