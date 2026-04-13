@@ -1,0 +1,113 @@
+.AddVacation {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.AddVacation form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.AddVacation h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.AddVacation label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+}
+
+.AddVacation input,
+.AddVacation textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.AddVacation button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.AddVacation button:hover {
+    background-color: #218838;
+}
+
+.image-upload-box {
+    display: block;
+    width: 100%;
+    height: 180px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.image-upload-box:hover {
+    border-color: #1e90ff;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: bold;
+}
+
+.image-preview {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-upload-box:hover .image-overlay {
+    opacity: 1;
+}

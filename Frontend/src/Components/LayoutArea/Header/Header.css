@@ -1,0 +1,37 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.Header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+/* Override UserMenu text colors inside the header */
+.Header .UserMenu span {
+    color: white;
+}
+
+.Header .UserMenu a {
+    color: #ffffffcc;
+}
+
+.Header .UserMenu a:hover {
+    color: white;
+}
+
+.Header .UserMenu button {
+    border-color: white;
+    color: white;
+}
+
+.Header .UserMenu button:hover {
+    background-color: white;
+    color: #007bff;
+}

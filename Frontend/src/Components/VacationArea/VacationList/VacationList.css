@@ -1,0 +1,89 @@
+.VacationListPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Filter bar */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-bar button {
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    background-color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.filter-bar button:hover {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.filter-bar button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Vacation cards grid */
+.VacationList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.no-results {
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 40px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0 30px;
+}
+
+.pagination button {
+    padding: 8px 18px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-number {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}

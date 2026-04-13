@@ -1,0 +1,65 @@
+.AskAI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.AskAI h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.ai-chat-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ai-input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ai-input-area input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.ai-input-area button {
+    padding: 0 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-input-area button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.ai-input-area button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.ai-response {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    white-space: pre-wrap;
+    line-height: 1.5;
+    color: #333;
+}

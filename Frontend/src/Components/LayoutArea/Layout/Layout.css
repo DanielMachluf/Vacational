@@ -1,0 +1,20 @@
+.Layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Layout > header {
+    flex-shrink: 0;
+}
+
+.Layout > nav {
+    flex-shrink: 0;
+}
+
+.Layout > main {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}

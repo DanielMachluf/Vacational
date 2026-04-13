@@ -1,0 +1,65 @@
+.AskMCP {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.AskMCP h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.mcp-chat-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mcp-input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mcp-input-area input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.mcp-input-area button {
+    padding: 0 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mcp-input-area button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.mcp-input-area button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.mcp-response {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    white-space: pre-wrap;
+    line-height: 1.5;
+    color: #333;
+}
