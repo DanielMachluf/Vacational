@@ -1,5 +1,7 @@
+import helmet from "helmet";
 import cors from "cors";
-import express from "express";
+import express, { Request } from "express";
+import rateLimit from "express-rate-limit";
 import { sseHandlers } from "express-mcp-handler";
 import { appConfig } from "./2-utils/app-config";
 import { vacationMcpServer } from "./4-services/mcp/mcp-server";
@@ -9,6 +11,7 @@ import { likeController } from "./5-controllers/like-controller";
 import { userController } from "./5-controllers/user-controller";
 import { vacationController } from "./5-controllers/vacation-controller";
 import { errorsMiddleware } from "./6-middleware/errors-middleware";
+import { securityMiddleware } from "./6-middleware/security-middleware";
 import expressFileUpload from "express-fileupload";
 import path from "path";
 import { fileSaver } from "uploaded-file-saver";
@@ -20,8 +23,24 @@ class App {
     public start(): void {
         try {
             const server = express();
+            
+            // Prevent DoS attack:
+            server.use(rateLimit({
+                windowMs: 1000, // Time window
+                limit: 20, // How many requests are permitted in this time window
+                skip: (request: Request) => request.path.startsWith("/api/vacations/images/") // When to skip the rate-limit
+            }));
+
+            server.use(helmet({
+                crossOriginResourcePolicy: false // Allow loading images from different origins if needed
+            }));
+            
             server.use(cors());
             server.use(express.json());
+            
+            // Prevent XSS attack (must be before controllers, after body-parsers like express.json):
+            server.use(securityMiddleware.preventXss);
+
             server.use(expressFileUpload());
 
             const imageLocation = path.join(__dirname, "1-assets", "images");
