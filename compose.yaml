@@ -11,7 +11,7 @@ services:
     environment:
       MYSQL_HOST: localhost
       MYSQL_DATABASE: vacation_app
-      MYSQL_ROOT_PASSWORD: "5E84dfdf!"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
     volumes:
       - mysql-volume:/var/lib/mysql
@@ -45,11 +45,11 @@ services:
       PORT: 4000
       MYSQL_HOST: mysql-service
       MYSQL_USER: root
-      MYSQL_PASSWORD: "5E84dfdf!"
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: vacation_app
-      HASH_SALT: "TheAmazing45800-3Students"
-      JWT_SECRET: "neon-dragon_🚀_midnight-cipher__vault42__cosmicEntropy__jwtPowerCore__9fA7xKQwLZpR8M2eT0VhS"
-      CHAT_GPT_API_KEY: "your_openai_api_key_here"
+      HASH_SALT: ${HASH_SALT}
+      JWT_SECRET: ${JWT_SECRET}
+      CHAT_GPT_API_KEY: ${CHAT_GPT_API_KEY}
       MCP_SERVER_URL: "https://physiologically-curial-lakesha.ngrok-free.dev/sse"
       IMAGES_BASE_URL: "http://localhost:4000/api/vacations/images"
 
