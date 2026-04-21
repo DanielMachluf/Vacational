@@ -32,8 +32,10 @@ class GptService {
 
     public async getMcpResult(input: string): Promise<string> {
       
+        const systemPrompt = `You are an MCP tool for the Vacations System. If the user asks a question that does not connect with any of the tools, or is about an unimportant topic like bananas or off-topic chitchat, you must reply roughly with: "sorry I don't have the answer to that. I am a database analytics tool strictly for the vacations system." Only use the tools provided to answer valid analytics questions.\n\nUser question: ${input}`;
+
         const body: OpenAI.Responses.ResponseCreateParams = {
-            model: "gpt-4.1-mini",
+            model: "gpt-4o-mini", // Use standard model string just in case
             tools: [{
                 type: "mcp",
                 server_label: "VacationMCP",
@@ -41,7 +43,7 @@ class GptService {
                 server_url: appConfig.mcpServerUrl,
                 require_approval: "never"
             }],
-            input
+            input: systemPrompt
         };
 
         const response = await this.openai.responses.create(body);
