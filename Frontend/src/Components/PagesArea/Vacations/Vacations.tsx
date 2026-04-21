@@ -1,5 +1,6 @@
 import { VacationList } from "../../VacationArea/VacationList/VacationList";
 import { Hero } from "../Hero/Hero";
+import { ConveyorBelt } from "../../ConveyorBelt/ConveyorBelt/ConveyorBelt";
 import "./Vacations.css";
 
 export function Vacations() {
@@ -7,6 +8,7 @@ export function Vacations() {
         <div className="Vacations">
 
             <Hero />
+            <ConveyorBelt />
             <VacationList />
 
         </div>
