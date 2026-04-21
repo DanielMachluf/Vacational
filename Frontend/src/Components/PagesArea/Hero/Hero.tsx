@@ -1,14 +1,8 @@
 import "./Hero.css";
-import heroImage from "../../../assets/VacationalHeroImage.png";
 
 export function Hero() {
     return (
         <section className="Hero">
-            <div className="hero-background">
-                <img src={heroImage} alt="Beautiful Vacation Scenery" />
-                <div className="hero-overlay"></div>
-            </div>
-            
             <div className="hero-content">
                 <h1 className="hero-title">
                     Discover Your <span>Dream</span> Vacation
@@ -18,7 +12,7 @@ export function Hero() {
                 </p>
                 <div className="hero-cta-wrapper">
                     <button className="hero-cta-button" onClick={() => window.scrollTo({ top: window.innerHeight - 100, behavior: 'smooth' })}>
-                        Explore Destiniations
+                        Explore Destinations
                     </button>
                 </div>
             </div>
