@@ -1,18 +1,26 @@
 import axios from "axios";
 import { VacationModel } from "../Models/VacationModel";
 import { appConfig } from "../Utils/AppConfig";
+import { store } from "../Redux/Store";
+import { vacationActions } from "../Redux/VacationSlice";
 
 class VacationsService {
 
     // Backend accepts ?page=1&filter=all|liked|active|future
     public async getAllVacations(page: number = 1, filter: string = "all"): Promise<VacationModel[]> {
+        // Only fetch if Redux state is empty or when forced by specific filters on component side
         const response = await axios.get<VacationModel[]>(
             `${appConfig.vacationsUrl}?page=${page}&filter=${filter}`
         );
+        store.dispatch(vacationActions.initVacations(response.data));
         return response.data;
     }
 
     public async getOneVacation(id: number): Promise<VacationModel> {
+        // Try fetching from Redux first
+        const vacationInStore = store.getState().vacations.find(v => v.vacationId === id);
+        if (vacationInStore) return vacationInStore;
+
         const response = await axios.get<VacationModel>(appConfig.vacationsUrl + "/" + id);
         return response.data;
     }
@@ -26,7 +34,8 @@ class VacationsService {
         formData.append("price", vacation.price?.toString() || "0");
         if (vacation.image) formData.append("image", vacation.image);
 
-        await axios.post<VacationModel>(appConfig.adminAddVacationUrl, formData);
+        const response = await axios.post<VacationModel>(appConfig.adminAddVacationUrl, formData);
+        store.dispatch(vacationActions.addVacation(response.data));
     }
 
     public async updateVacation(vacation: VacationModel): Promise<void> {
@@ -39,11 +48,13 @@ class VacationsService {
         formData.append("price", vacation.price?.toString() || "0");
         if (vacation.image) formData.append("image", vacation.image);
 
-        await axios.put<VacationModel>(appConfig.adminUpdateVacationUrl + "/" + vacation.vacationId, formData);
+        const response = await axios.put<VacationModel>(appConfig.adminUpdateVacationUrl + "/" + vacation.vacationId, formData);
+        store.dispatch(vacationActions.updateVacation(response.data));
     }
 
     public async deleteVacation(id: number): Promise<void> {
         await axios.delete(appConfig.adminDeleteVacationUrl + "/" + id);
+        store.dispatch(vacationActions.deleteVacation(id));
     }
 
     // Admin report: { destination, likesCount }[]
