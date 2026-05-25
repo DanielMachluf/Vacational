@@ -10,7 +10,7 @@ import { Spinner } from "../../SharedArea/Spinner/Spinner";
 import "./UpdateVacation.css";
 
 export function UpdateVacation() {
-    const { register, handleSubmit, setValue } = useForm<VacationModel>();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<VacationModel>();
     const navigate = useNavigate();
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -70,6 +70,10 @@ export function UpdateVacation() {
 
     async function send(vacation: VacationModel) {
         try {
+            if (new Date(vacation.startDate!) < new Date(new Date().setHours(0,0,0,0))) {
+                notify.error("Start date cannot be in the past!");
+                return;
+            }
             if (new Date(vacation.endDate!) < new Date(vacation.startDate!)) {
                 notify.error("End date must be after or equal to start date!");
                 return;
@@ -96,19 +100,36 @@ export function UpdateVacation() {
                 <input type="hidden" {...register("vacationId")} />
 
                 <label>Destination:</label>
-                <input type="text" {...register("destination", { required: true, minLength: 2, maxLength: 50 })} />
+                <input type="text" {...register("destination", {
+                    required: "Destination is required",
+                    minLength: { value: 2, message: "Destination must be at least 2 characters" },
+                    maxLength: { value: 50, message: "Destination cannot exceed 50 characters" }
+                })} />
+                {errors.destination && <span className="error-msg">{errors.destination.message}</span>}
 
                 <label>Description:</label>
-                <textarea {...register("description", { required: true, minLength: 2, maxLength: 500 })} rows={4} />
+                <textarea {...register("description", {
+                    required: "Description is required",
+                    minLength: { value: 2, message: "Description must be at least 2 characters" },
+                    maxLength: { value: 500, message: "Description cannot exceed 500 characters" }
+                })} rows={4} />
+                {errors.description && <span className="error-msg">{errors.description.message}</span>}
 
                 <label>Start Date:</label>
-                <input type="date" {...register("startDate", { required: true })} />
+                <input type="date" {...register("startDate", { required: "Start date is required" })} />
+                {errors.startDate && <span className="error-msg">{errors.startDate.message}</span>}
 
                 <label>End Date:</label>
-                <input type="date" {...register("endDate", { required: true })} />
+                <input type="date" {...register("endDate", { required: "End date is required" })} />
+                {errors.endDate && <span className="error-msg">{errors.endDate.message}</span>}
 
                 <label>Price ($):</label>
-                <input type="number" step="0.01" {...register("price", { required: true, min: 0, max: 10000 })} />
+                <input type="number" step="0.01" {...register("price", {
+                    required: "Price is required",
+                    min: { value: 0, message: "Price cannot be negative" },
+                    max: { value: 10000, message: "Price cannot exceed $10,000" }
+                })} />
+                {errors.price && <span className="error-msg">{errors.price.message}</span>}
 
                 <label>Cover image:</label>
                 <label className="image-upload-box">

@@ -150,3 +150,16 @@
     background-color: #f1f1f1;
     color: #555;
 }
+
+.error-msg {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: -3px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.UpdateVacation input.input-error,
+.UpdateVacation textarea.input-error {
+    border-color: #dc3545;
+}

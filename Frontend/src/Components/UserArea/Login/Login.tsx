@@ -9,7 +9,7 @@ import { notify } from "../../../Utils/Notify";
 import "./Login.css";
 
 export function Login() {
-    const { register, handleSubmit } = useForm<CredentialsModel>();
+    const { register, handleSubmit, formState: { errors } } = useForm<CredentialsModel>();
     const navigate = useNavigate();
     const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
@@ -33,10 +33,19 @@ export function Login() {
                 <h2>Login</h2>
 
                 <label>Email:</label>
-                <input type="email" {...register("email", { required: true })} />
+                <input type="email" {...register("email", {
+                    required: "Email is required",
+                    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email format" }
+                })} />
+                {errors.email && <span className="error-msg">{errors.email.message}</span>}
 
                 <label>Password:</label>
-                <input type="password" {...register("password", { required: true, minLength: 2, maxLength: 30 })} />
+                <input type="password" {...register("password", {
+                    required: "Password is required",
+                    minLength: { value: 4, message: "Password must be at least 4 characters" },
+                    maxLength: { value: 30, message: "Password cannot exceed 30 characters" }
+                })} />
+                {errors.password && <span className="error-msg">{errors.password.message}</span>}
 
                 <ReCAPTCHA
                     sitekey={appConfig.recaptchaSiteKey}
